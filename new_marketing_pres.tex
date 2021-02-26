@@ -30,13 +30,13 @@
 \title{AFRL Morph X}
 %%\subtitle{A Software Licensing Opportunity}
 
-\author{Jeff Brown\\
-  Alex Kaszynski}
+\author{\large {Jeff Brown\\
+  Alex Kaszynski}}
 
 \institute{Engine Integrity Branch\\
   Turbine Engine Divsion\\
   Aerospace Systems Directorate}
-    \date{24 Feb 2019}
+    \date{26 Feb 2021}
     %%%%%      \vspace{5pt}xxxxxb
     % Turbine Engine Technology Symposium 2018}
 \distribution{\small{\textbf{Distribution Statemeent A}}}
@@ -72,31 +72,49 @@
     %% \scalebox{0.6}{\smartdiagram[connected constellation diagram]{AFRL Morph X,
     %%     Design, Repair, Operation, Manufacture}}
     \smartdiagramset{font=\small}
-    \scalebox{0.6}{\smartdiagram[bubble diagram]{AFRL Morph X,
+    \scalebox{0.55}{\smartdiagram[bubble diagram]{\includegraphics[height=2.0cm]{./figures/morph_logo.png} \\AFRL Morph\\ X,
         Design, Repair, Operation, Manufacture}}
     
   \end{column}
 \end{columns}
   
 }
+%\includegraphics[height=1.0]{./figures/diskfem_side.png}
+
 %-------------------------------------------------------------------------------------------------------#
 \begin{frame}
   \frametitle{Design with AFRL Morph X}
   \framesubtitle{Update FEM to Parametrically Variable CAD Surface}
   \begin{center}
 
-    \vspace{-5mm}
+    \vspace{-11mm}
 
 \begin{center}
     \begin{tikzpicture}
       % trim (left, lower, right uppert)
-      \node (img1) [label={[align=center, below, xshift=-1.25cm, yshift=-4.5cm]FEM\\Side View}, inner sep=0][xshift=-3cm]{\includegraphics[height=4.5cm, trim={14cm, 0cm, 0cm, 0cm}, clip]{./figures/disk_side.png}};
-      \node (img2) at (img1.east)[label={[align=center, below, xshift=-0.5cm, yshift=-4.5cm]Target CAD\\Side View}, inner sep=0][yshift=0.0cm]{\includegraphics[height=4.5cm, trim={7cm, 0cm, 0cm, 0cm}, clip]{./figures/disk2_side.png}};
-      \node (img3) at (img2.east)[label={[align=center, below, xshift=-0.5cm,yshift=-4.75cm]FEM\\Front View}, inner sep=0][xshift=1.0cm, yshift=0.0cm]{\includegraphics[height=4.9cm, trim={13.0cm, 0cm, 3cm, 1cm}, clip]{./figures/disk_front.png}};
-      \node (img4) at (img3.east)[label={[align=center, below, yshift=-4.75cm]Target CAD\\Front View}, inner sep=0][xshift=0.25cm]{\includegraphics[height=4.9cm, trim={13cm, 0cm, 9cm, 1cm}, clip]{./figures/disk2_front.png}};
+      \node (img1) {\includegraphics[height=4.5cm, trim={14cm, 0cm, 0cm, 0cm}, clip]{./figures/diskfem_side.png}};
+      \node (img2) at (img1.east) [yshift=0.0cm]{\includegraphics[height=4.5cm, trim={7cm, 0cm, 0cm, 0cm}, clip]{./figures/diskcad_side.png}};
+      \node (img3) at (img2.east) [xshift=1.0cm, yshift=0.1cm]{\includegraphics[height=4.9cm, trim={13.0cm, 0cm, 3cm, 1cm}, clip]{./figures/diskfem_front.png}};
+      \node (img4) at (img3.east) [xshift=0.25cm, yshift=0.1cm]{\includegraphics[height=4.9cm, trim={13cm, 0cm, 9cm, 1cm}, clip]{./figures/diskcad_front.png}};
+
+      \node [] at (-1.25, -2.5) (cap1) [align=center]{FEM};
+      \node [] at (1.5, -2.5) (cap2) [align=center]{Target CAD};
+      \node [] at (4.85, -2.5) (cap3) [align=center]{FEM};
+      \node [] at (7.75, -2.5) (cap4) [align=center]{Target CAD};
+
+      \node [] at (0, -3.15) (cap5) [align=center, font=\bfseries]{Side View};
+      \node [] at (6.25, -3.15) (cap6) [align=center, font=\bfseries]{Front View};
+
+      \node [draw] at (3.55, -4.0) (cap7) [align=center]{\footnotesize Models plotted in same reference frame.  FEM grows radially.\\Fourteen variable geometry parameters.};
+
+      %\node [draw] at (3.55, -3.5) (cap7) [align=center]{\footnotesize Bore Radius, Bore Width, Bore height, Web Height, Web Thickness, Rim Radius,\\ \footnotesize Bolt Hole Radius, Bolt Hole Diameter, 6x Dovetail Parameters};
+
+
+      
     \end{tikzpicture}
 \end{center}
-       
+
+
   \end{center}    
 \end{frame}
 
@@ -115,7 +133,7 @@
       \node (img3) at (img2.south east) [xshift=1.0cm]{\includegraphics[height=3.0cm]{./figures/disk_side_3.png}};
 
       \node (img4) at (img1.east) [xshift=4.0cm]{\includegraphics[height=3.0cm]{./figures/disk_front_1.png}};
-      \node (img5) at (img4.south east) [xshift=1.0cm]{\includegraphics[height=3.0cm]{./figures/disk_front_2.png}};
+      \node (img5) at (img4.south east) [xshift=1.0cm, yshift=0.1cm]{\includegraphics[height=3.0cm]{./figures/disk_front_2.png}};
       \node (img6) at (img5.south east) [xshift=1.0cm]{\includegraphics[height=3.0cm]{./figures/disk_front_3.png}};
       
     \end{tikzpicture}
@@ -144,7 +162,6 @@
  \end{figure} 
 \end{frame}
 
-
 %-------------------------------------------------------------------------------------------------------#
 \begin{frame}
   \frametitle{Design with AFRL Morph X}
@@ -154,8 +171,6 @@
     text width=4.5em, text badly centered, node distance=3cm, inner sep=0pt]
   \tikzstyle{block} = [rectangle, draw, fill=white!20, 
     text width=4em, text centered, rounded corners, minimum height=1em, inner sep=0.025cm]
-  %% \tikzstyle{block} = [rectangle, draw, fill=white!20, 
-  %%   text width=4em, text centered, rounded corners, minim height=1.1cm]
 
   \tikzstyle{line} = [draw, -latex']
   \tikzstyle{cloud} = [draw, ellipse,fill=red!20, node distance=3cm,7
@@ -163,17 +178,18 @@
   
   \begin{tikzpicture}
 
-    
-    \node (circle) [circle] at (-1.35, -0.05) [align=center, yshift=-0.75cm, xshift=1.5cm, color=white, fill=blue, inner sep=2pt]{AFRL\\ MORPH X};
+    %\node (circle) [circle] at (-1.35, -0.05) [align=center, yshift=-0.75cm, xshift=1.5cm, color=white, fill=blue, inner sep=2pt]{AFRL\\ MORPH X};
+    \node [draw] at (0.15, -0.80) (logo) {\includegraphics[height=1.75cm]{./figures/morph_logo.png}};%{\includegraphics{./figures/morph_logo.png}};
+    \node [] at (0.15, -2.25) (caption) [align=center]{AFRL\\MORPH X};%{\includegraphics{./figures/morph_logo.png}};
     \node [draw] at (0.1, 1) (cad) [align=center, fill=blue!20]{Parametric\\ CAD};
     \node [] at (0.1, 2.25) (doe) [align=center]{Airfoil Blend\\ DoE Matrix};
     \draw [->] (0.1, 0.5) -- (0.1, 0.2);
     \draw [->] (0.1, 1.85) -- (0.1, 1.5);
 
-    \draw [->] [color=blue, line width=0.45mm] (0.0, -0.75) -- (2.0, -0.75);
+    \draw [->] [color=blue, line width=0.45mm] (1.1, -0.75) -- (2.0, -0.75);
     
     
-    \node [block, right of=circle, xshift=1.8cm, yshift=0.8cm] (block1) {\includegraphics[height=1.0cm, , trim={13cm, 7cm, 13cm, 1cm}, clip]{./figures/pbs4_blend_1.png}};
+    \node [block, right of=logo, xshift=1.8cm, yshift=0.8cm] (block1) {\includegraphics[height=1.0cm, , trim={13cm, 7cm, 13cm, 1cm}, clip]{./figures/pbs4_blend_1.png}};
     \node [block, right of=block1, xshift=1.0cm] (block2) {\includegraphics[height=1.0cm, , trim={13cm, 7cm, 13cm, 1cm}, clip]{./figures/pbs4_blend_2.png}};
     \node [block, right of=block2, xshift=1.0cm] (block3) {\includegraphics[height=1.0cm, , trim={13cm, 7cm, 13cm, 1cm}, clip]{./figures/pbs4_blend_3.png}};
     \node [block, right of=block3, xshift=1.0cm] (block4) {\includegraphics[height=1.0cm, , trim={13cm, 7cm, 13cm, 1cm}, clip]{./figures/pbs4_blend_4.png}};
@@ -279,12 +295,12 @@
   \framesubtitle{AFRL Morph X updates the Design FEM to match the STL surface within 0.001''}
   \begin{tikzpicture}
     \node (img1) at (0, 0) [label={[align=center, below, yshift=-2.5cm]STL Surface}, yshift=-.5cm, xshift=0cm, inner sep=-2pt] {\includegraphics[height=2.5cm]{./figures/pbs_surf.png}};
-    \node (img2) at (img1.south) [label={[align=center, below, yshift=-2.5cm]Design FEM}, yshift=-2.5cm, inner sep=-2pt]{\includegraphics[height=2.5cm]{./figures/pbs_fem.png}};
-    \node (circle) [circle] at (img1.south east) [align=center, yshift=-0.75cm, xshift=1.5cm, color=white, fill=blue, inner sep=8pt]{AFRL\\ MORPH X};
+    \node (img2) at (img1.south) [label={[align=center, below, yshift=-2.5cm]Design FEM}, yshift=-2.65cm, inner sep=-2pt]{\includegraphics[height=2.5cm]{./figures/pbs_fem.png}};
+    \node [draw] at (3.5, -2.4) (circle) {\includegraphics[height=2.5cm]{./figures/morph_logo.png}};
     \node (img3) at (circle.east) [label={[align=center, above, yshift=0.5cm]Morphed FEM\\ Deviations from STL}, xshift=2.5cm, inner sep=-9pt]{\includegraphics[height=3.0cm]{./figures/pbs_morphdev.png}};
 
-    \draw[->,thick] (img1.east) -- (circle.west);
-    \draw[->,thick] (img2.east) -- (circle.west);
+    \draw[->,thick] (img1.east) -| (circle.north);
+    \draw[->,thick] (img2.east) -| (circle.south);
     \draw[->,thick] (circle.east) -- (img3.west);
   \end{tikzpicture}
 
@@ -397,6 +413,7 @@
   \item Operating in year 4 of 10 year non-exclusive license with Pratt \& Whitney
   \item P\&W provides licensing fees for use and support
   \item Utilized by large P\&W user base for wide range of applications
+  \item Applied pervasively in AFRL research activities
   \end{itemize}
 
 \end{frame}
@@ -406,9 +423,7 @@
   \frametitle{Closing Remarks}
   \begin{itemize}
   \item AFRL MORPH X adds value across the life cycle, from design, to manufacture, and through operations
-  \item Rigourous software development practices have enabled rapid development and succesful deployment 
-  \item Used pervasively on AFRL Turbine Engine Divsion Research, product development, and field support
-  \item Used extensivey by P\&W in many applications
+  \item Rigorous software development practices have enabled rapid development and successful deployment 
   \item Windows demo software available and licensing opportunities
   \end{itemize}
 }

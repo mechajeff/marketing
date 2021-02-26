@@ -1,5 +1,4 @@
-import osp
-
+import os
 from ansys.mapdl.core import launch_mapdl
 import femorph
 import pyvista as pv
@@ -268,13 +267,13 @@ cpos_disk_front = ([(-2.2042036375980363, 9.050783755759968, 24.42220625276661),
 
 
 pl = pv.Plotter()
-pl.add_mesh(surf, show_edges=False)
+pl.add_mesh(surf, show_edges=False, smooth_shading=True)
 pl.add_mesh(fem.exsurf_quad, color='w', show_edges=True, opacity=1.0, lighting=False)
 pl.add_mesh(fem2.exsurf_quad, color='w', show_edges=True)
-pl.camera_position = cpos_disk_side
+pl.camera_position = cpos_disk_front
 pl.background_color = 'w'
-cpos = pl.show(screenshot='disk2_side.png')
-
+cpos = pl.show(screenshot='disk_front.png')
+pl.show()
 femorph.open_logger()
 settings = {'enable_ray_trace': True,
             'enable_local_morph': True,
@@ -296,6 +295,6 @@ front_cpos = ([(-3.5993935889082445, 4.335802552036804, 21.728704282864197),
 
 b_args = {'color': 'k'}
 fem.animate(framerate=30, duration=10.0, cpos=cpos_disk_front, accuracy_scalars=True,
-            filename='disk_front.mp4', background_color='w',
+            filename='disk_front.mp4', background_color=None,
             mesh_kwargs={'color': 'w'}, target=surf,
             target_kwargs={'style': 'surface', 'opacity': 0.6})
