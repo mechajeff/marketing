@@ -1,0 +1,336 @@
+%Copyright (c) <2015> <John T. Foster>
+
+%Permission is hereby granted, free of charge, to any person obtaining a copy
+%of this software and associated documentation files (the "Software"), to deal
+%in the Software without restriction, including without limitation the rights
+%to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+%copies of the Software, and to permit persons to whom the Software is
+%furnished to do so, subject to the following conditions:
+
+%The above copyright notice and this permission notice shall be included in
+%all copies or substantial portions of the Software.
+
+%THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+%IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+%FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+%AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+%LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+%OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+%THE SOFTWARE.
+
+
+%\DeclareOptionBeamer{dept}{\def\beamer@Cockrell@dept{#1}}    
+%\ExecuteOptionsBeamer{dept=CockrellSchool}
+%\ProcessOptionsBeamer
+
+\mode<presentation>
+\setbeamersize{text margin left=2.25em,text margin right=2.25em} 
+
+
+%Requirements
+\RequirePackage{tikz}
+\RequirePackage{xcolor}
+\RequirePackage{ifthen}
+\graphicspath{{./AFKit/}}
+\usepackage[scaled=0.90]{helvet}
+
+%The base themes we inherit from
+\usetheme[headheight=0.7cm,footheight=0cm]{boxes}                 
+\usecolortheme{default}       
+
+
+
+%Define Colors
+\definecolor{AFRL@MainBlue}{RGB}{13,77,140}
+\definecolor{AFRL@Yellow}{RGB}{251,206,32}
+\definecolor{AFRL@LightBlue}{RGB}{0,188,228}
+\definecolor{AFRL@Red}{RGB}{179,40,45}
+\definecolor{AFRL@LightGray}{RGB}{203,204,203}
+\definecolor{AFRL@DarkGray}{RGB}{89,90,89}
+
+%Define Smaller than tiny font
+\newcommand{\miniscule}{\@setfontsize\minisule{4.5}{5}}%
+
+%Define Quick Images
+\pgfdeclareimage[width=0.18\textwidth]{AFRLBlue}{./AFKit/AFRL_Type_Secondary_logo_Blue.pdf}
+\pgfdeclareimage[width=0.18\textwidth]{AFRLWhite}{./AFKit/AFRL_Type_Secondary_logo_White.pdf}
+\pgfdeclareimage[width=0.4\textwidth]{AFRLLong}{./AFKit/AFRL_Logotype_art_element_Black.pdf} 
+
+
+%Define Header/footer graphics, bars, distribution text, and page numbers
+\addheadbox{section in head/foot}{\raisebox{-3em}{\hspace{1.8em}{\pgfuseimage{AFRLBlue}}}}
+\addheadbox{section in head/foot}{\raisebox{-0.4em}{\hspace{-29.3em}\rule{11cm}{0.4pt}}}
+\addfootbox{section in head/foot}{\raisebox{-7.5em}{\hspace{2.2em}{\pgfuseimage{AFRLLong}}}}
+\addfootbox{section in head/foot}{\raisebox{2.3em}{\hspace{1.5em}\rule{6.7cm}{0.4pt}}}
+\addfootbox{section in head/foot}{\raisebox{2.2em}{\hspace{15.2em}\scalebox{0.7}{ {\insertframenumber\,/\,\inserttotalframenumber}}}}
+
+\addtobeamertemplate{footline}{%
+     \hspace{7.2cm}\scalebox{0.38}{\parbox[t][0.9cm][t]{12.2cm}{\raggedleft \@distribution}}
+
+}
+
+%\addtobeamertemplate{footline}{%
+%   \vskip-1cm\hskip12pt
+%   \scalebox{0.7}{{\insertframenumber\,/\,\inserttotalframenumber}}\kern2em\vskip4pt%
+%     \parbox{\linewidth}{\vspace*{-8pt}\hspace{1.7cm}\scalebox{0.5}{\textnormal{{\insertshortinstitute}}}}
+%}
+
+%New Commands
+\def\distribution#1{\gdef\@distribution{#1}}
+\def\@distribution{\latex@error{No \noexpand\distribution given}\@ehc}
+
+\def\conference#1{\gdef\@conference{#1}}
+
+\def\subheadleft#1{\gdef\insertsubheadleft{#1}}	
+
+\def\subtextleft#1{\gdef\insertsubtextleft{#1}}
+
+\def\subheadright#1{\gdef\insertsubheadright{#1}}
+
+\def\subtextright#1{\gdef\insertsubtextright{#1}}
+
+
+%Theme settings
+%Table of Contents
+%http://mirror.hmc.edu/ctan/macros/latex/contrib/beamer/doc/beameruserguide.pdf
+%Section 10.5
+\setbeamertemplate{section in toc}[sections numbered]
+\setbeamertemplate{section in toc shaded}[default][30]
+\setbeamerfont{subsection in toc}{size=\small}
+
+
+%Title page
+\setbeamerfont{title page}{series=\mdseries}
+\setbeamercolor{title page}{fg=black}
+\setbeamerfont{title}{series=\mdseries,size=\huge}
+\setbeamercolor{title}{fg=AFRL@MainBlue}
+\setbeamerfont{subtitle}{series=\mdseries,size=\large}
+\setbeamercolor{subtitle}{fg=AFRL@MainBlue}
+\setbeamerfont{author}{series=\bfseries,size=\footnotesize,shape=\scshape} %was \miniscule
+\setbeamercolor{author}{fg=AFRL@MainBlue}
+\setbeamerfont{conference}{series=\bfseries,size=\footnotesize,shape=\scshape} %was \miniscule
+\setbeamercolor{conference}{fg=AFRL@MainBlue}
+\setbeamerfont{institute}{series=\bfseries,size=\tiny,shape=\scshape} %was \miniscule
+\setbeamercolor{institute}{fg=AFRL@MainBlue}
+\setbeamerfont{date}{series=\bfseries,size=\tiny,shape=\scshape} %was \miniscule
+\setbeamercolor{date}{fg=AFRL@MainBlue}
+\setbeamerfont{subhead}{series=\bfseries,shape=\scshape,size=\scriptsize}
+\setbeamercolor{subhead}{fg=AFRL@LightBlue}
+\setbeamerfont{section}{series=\bfseries,size=\huge}
+\setbeamercolor{section}{fg=AFRL@Yellow}
+
+
+
+%Color palette
+\setbeamercolor{structure}{fg=black}
+\setbeamerfont{structure}{series=\mdseries,shape=\upshape}
+\setbeamercolor{section in head/foot}{bg=AFRL@LightGray!0, fg=black}
+\setbeamercolor{footline}{bg=AFRL@LightGray!0, fg=black}
+\setbeamercolor*{palette primary}{use=structure,bg=white, fg=black}
+\setbeamercolor*{palette secondary}{use=structure,bg=white, fg=black}
+\setbeamercolor*{palette tertiary}{bg=white, fg=black}
+\setbeamercolor*{palette quaternary}{bg=white, fg=black}
+
+%Frames
+\setbeamertemplate{frametitle}{
+	\vspace{2pt}
+	\hspace{-3pt}
+	\insertframetitle\\
+	\hspace{-2.5pt}
+	\footnotesize{\vspace{-5pt}\insertframesubtitle}
+	\vspace{0pt}}
+\setbeamercolor*{frametitle}{use=structure,fg=AFRL@MainBlue, bg=white}
+\setbeamerfont*{frametitle}{size=\large,series=\bfseries}
+\setbeamercolor*{framesubtitle}{fg=AFRL@MainBlue}
+
+
+
+%Blocks
+\setbeamertemplate{blocks}[rounded][shadow=true]
+\setbeamercolor*{block title}{fg=white, bg=AFRL@LightBlue}
+\setbeamertemplate{itemize item}{\boldmath$\cdot$}
+\setbeamertemplate{itemize subitem}{\boldmath$\cdot$}
+\setbeamertemplate{itemize subsubitem}{\boldmath$\cdot$}
+
+
+
+%Text
+\setbeamercolor{normal text}{bg=white,fg=black}
+\setbeamercolor{alerted text}{fg=black}
+\setbeamercolor{item projected}{use=item,fg=black,bg=item.fg!35}
+\setbeamercolor{subitem}{fg=black}
+
+
+
+%Remove navigation symbols
+\setbeamertemplate{navigation symbols}{}
+
+%Note page settings
+\setbeamerfont{note page}{size=\scriptsize}
+\setbeamertemplate{note page}{\insertnote\par}
+
+%Setup title page Formatting
+\defbeamertemplate*{title page}{customized}[1][]{%
+\vspace{30pt}
+{\centering
+\usebeamerfont{title page}\usebeamercolor[fg]{title page}
+  \usebeamerfont{title}\usebeamercolor[fg]{title}\inserttitle\par
+  \usebeamerfont{subtitle}\usebeamercolor[fg]{subtitle}\insertsubtitle\par
+  \usebeamerfont{title page}\usebeamercolor[fg]{title page}
+  }
+ \vspace{30pt}
+  {\centering
+  \usebeamerfont{author}\usebeamercolor[fg]{author}\insertauthor\par 
+  \vspace{5pt}
+  \usebeamerfont{institute}\usebeamercolor[fg]{institute}\insertinstitute \par
+  \usebeamerfont{date}\usebeamercolor[fg]{institute}\insertdate\\
+  }
+   \ifdefined\@conference
+   	 \vspace{5pt}% 
+	 \centering%
+  	\usebeamerfont{conference}\usebeamercolor[fg]{conference}\@conference\par
+   \fi
+  
+
+}
+
+
+%Use biber for special bibliogrphay.  The next few lines are all custom hacks to
+%make nice footnote citation in beamer.
+%\usepackage[hyperref=true,style=verbose,labeldate=true,minnames=2,maxnames=10,maxbibnames=99,backend=biber]{biblatex}
+%Use utorange for hyperlinks
+%\hypersetup{colorlinks=true, allcolors=black, linkcolor=black, urlcolor=AFRL@LightBlue}
+
+%\renewcommand*{\labelnamepunct}{\addcolon\addspace}
+%\DeclareFieldFormat[article,inbook,incollection,inproceedings,patent,thesis,unpublished]
+%{title}{#1\isdot}
+%\renewbibmacro*{cite:short}{%
+%  \printnames{labelname}%
+%  \setunit*{\addspace}%
+%  \printtext[bibhyperlink]{%
+%    \printfield{labelyear}\printfield{extrayear}}}
+
+
+%\renewcommand\cite{\footcite}
+
+
+%Subtext for MiniPage
+\newcommand{\insertsubleft}{
+   \ifdefined\insertsubheadleft
+      %\if\subheadleft\empty
+      %\else
+   	 \vspace{5pt}% 
+	 \centering%
+  	  \usebeamerfont{subhead}\usebeamercolor[fg]{subhead}\insertsubheadleft\\
+	  \renewcommand{\subheadleft}[1]{\@empty}
+	  \let\subheadleft\empty
+	  %\renewcommand\insertsubheadleft{}
+       %\fi
+   \fi
+   \usebeamerfont{structure}\usebeamercolor[fg]{structure}\insertsubtextleft
+}
+
+\newcommand{\insertsubright}{
+   \ifdefined\insertsubheadright
+   	 \vspace{5pt}% 
+	 \centering%
+  	  \usebeamerfont{subhead}\usebeamercolor[fg]{subhead}\insertsubheadright\\
+	   %\subheadright{\empty}
+	   %\let\subheadright\undefined
+   \fi
+   \usebeamerfont{structure}\usebeamercolor[fg]{structure}\insertsubtextright
+}
+
+\newcommand{\insertsubpage}{
+\vspace{-10pt}
+  \begin{minipage}[t]{0.45\textwidth}
+  	\insertsubleft
+  \end{minipage}    ~~~~~~~~
+  \begin{minipage}[t]{0.45\textwidth}
+  	\insertsubright
+  \end{minipage}
+}
+
+\newcommand{\insertsubnohead}{
+\vspace{-10pt}
+  \begin{minipage}[t]{0.45\textwidth}
+  	\usebeamerfont{subhead}\usebeamerfont{structure}\usebeamercolor[fg]{structure}\insertsubtextleft
+  \end{minipage}    ~~~~~~~~
+  \begin{minipage}[t]{0.45\textwidth}
+   	\usebeamerfont{subhead}\usebeamerfont{structure}\usebeamercolor[fg]{structure}\insertsubtextright
+  \end{minipage}
+}
+
+
+
+%Create Section Slide
+
+\newcommand{\insertsectionTMP}{\usebeamerfont{section}\usebeamercolor[fg]{section}\insertsectionhead}
+  
+\newcommand{\SectionSlideOLD}{{%
+\setbeamertemplate{headline}{\includegraphics[width = \paperwidth]{./AFKit/Galaxies}}
+\usebackgroundtemplate{\includegraphics[width = \paperwidth]{./AFKit/Galaxies}}
+\setbeamertemplate{footline}{
+  \leavevmode%
+  \hbox{%
+  \begin{beamercolorbox}[wd=\paperwidth,ht=8.25ex,dp=3.5ex]{AFRL@LightBlue!0}%
+  \end{beamercolorbox}%
+  }%
+}
+
+\begin{frame}[c]
+    \centering
+    \color{white}{\insertsectionTMP}
+\end{frame}
+
+}}
+
+\newcommand{\SectionSlide}{
+
+%\begin{frame}
+    \tableofcontents[currentsection=long,%
+    sectionstyle=show/shaded,
+    subsectionstyle = show/show/hide,]
+%\end{frame}
+}
+
+%Create lastpage macro
+\newcommand{\lastframe}{{%
+\setbeamertemplate{headline}{\includegraphics[width = \paperwidth]{./AFKit/Galaxies}}
+\usebackgroundtemplate{\includegraphics[width = \paperwidth]{./AFKit/Galaxies}}
+\setbeamertemplate{footline}{
+  \leavevmode%
+  \hbox{%
+  \begin{beamercolorbox}[wd=\paperwidth,ht=8.25ex,dp=3.5ex]{AFRL@LightBlue!0}%
+  \end{beamercolorbox}%
+  }%
+}
+\begin{frame}[c]
+    \begin{center}
+        \includegraphics[width=0.7\textwidth]{./AFKit/AFRL_Type_Secondary_logo_White}
+    \end{center}
+\end{frame}
+}}
+
+%Create TitleFrame Macro
+\newcommand{\titleframe}{{
+ \setbeamertemplate{headline}{\includegraphics[width = \paperwidth]{./AFKit/TitleSlide_BrightBlueSkies}}
+\usebackgroundtemplate{\includegraphics[width = \paperwidth]{./AFKit/TitleSlide_BrightBlueSkies}}
+\setbeamertemplate{footline}{}
+\addtobeamertemplate{footline}{\centering \rule{11cm}{0.4pt}\par\vspace{4pt}\hspace{6.4cm}\scalebox{0.38}{\parbox[t][0.9cm][t]{12.2cm}{\raggedleft \@distribution}}}
+
+
+\frame[c]{\maketitle}
+}}
+
+
+
+
+
+
+\mode<all>
+
+
+
+
+
