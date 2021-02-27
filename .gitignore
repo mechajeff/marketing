@@ -15,9 +15,11 @@ file.*
 *.out
 *.snm
 *.toc
+*.nav
 
 # Python Temp files
 '#*
 
 # Other
 .#*
+/#*
