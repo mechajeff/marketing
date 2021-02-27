@@ -36,7 +36,7 @@
 \institute{Engine Integrity Branch\\
   Turbine Engine Divsion\\
   Aerospace Systems Directorate}
-    \date{26 Feb 2021}
+    \date{\today}
     %%%%%      \vspace{5pt}xxxxxb
     % Turbine Engine Technology Symposium 2018}
 \distribution{\small{\textbf{Distribution Statemeent A}}}
@@ -44,6 +44,7 @@
 \conference{}
 \begin{document}
 \titleframe
+
 
 %-------------------------------------------------------------------------------------------------------#
 \frame{
@@ -407,8 +408,7 @@
 
   \begin{itemize}
   \item Developed in Python, C, and C++ for 8+ years
-  \item How many commits?  Testing coverage?
-  \item Accessible through GUI and Python API, Linux, Windows, and Apple
+  \item Accessible through GUI and Python API, Linux, Windows, and Mac OS
   \item Beta tested by Pratt \& Whitney for two years
   \item Operating in year 4 of 10 year non-exclusive license with Pratt \& Whitney
   \item P\&W provides licensing fees for use and support
@@ -417,6 +417,91 @@
   \end{itemize}
 
 \end{frame}
+
+
+%-------------------------------------------------------------------------------------------------------#
+%% \begin{frame}
+%%   \frametitle{AFRL Design X Background}
+%%   \framesubtitle{Software Development}
+
+%%   \begin{itemize}
+%%   \item Applied pervasively in AFRL research activities
+%%   \end{itemize}
+
+%%       \begin{figure}
+%%        \includegraphics[height=1.25in]{./figures/GUI.png}
+%%       \end{figure}
+
+%% \end{frame}
+
+%% -------------------------------------------------------------------------------------------------------#
+
+\begin{frame}
+  \frametitle{AFRL Design X Background}
+  \framesubtitle{Software Development}
+
+  \begin{itemize}
+  \item Software tested rigorously in continuous development and deployment (CI/CD) pipelines
+  \item Leverages automated testing in a secure environment
+  \item Enables high code coverage and stability testing through regression testing.
+  \end{itemize}
+
+      \begin{figure}
+       \includegraphics[height=1.65in]{./figures/ci-trigger.png}
+      \end{figure}
+
+\end{frame}
+
+
+%-------------------------------------------------------------------------------------------------------#
+
+\begin{frame}
+  \frametitle{AFRL Design X Background}
+  \framesubtitle{Software Testing}
+
+  \begin{itemize}
+  \item AFRL Design X follows standard software development practices.
+  \item Unit and regression tests ensure new features are added without breaking existing ones.
+  \item Code coverage of $\geq$ 95\% required for all modules, and $\geq$ 98\% for core modules
+  \end{itemize}
+
+      \begin{figure}
+       \includegraphics[height=1.65in]{./figures/pytest.png}
+      \end{figure}
+
+\end{frame}
+
+
+%% %-------------------------------------------------------------------------------------------------------#
+
+\begin{frame}
+  \frametitle{AFRL Design X Background}
+  \framesubtitle{Software Design: Modularity}
+
+  \vspace{-5mm}
+  \begin{columns}
+
+    \begin{column}{0.6\textwidth}
+      \begin{itemize}
+      \item Software is a non-monolithic, modular, and composed of several packages.  Includes both GUI and batch packages.
+      \item Designed to be expandable, adaptive, and compatible with modern Python 3.6 - 3.8 environments on Windows, Mac, and Linux.
+      \item Installable from \textit{pip} via offline wheelhouse from GitHub releases.
+      \item Compatible with standalone virtual environments, Jupyterlab webpages, or standard Python.
+      \end{itemize}
+    \end{column}
+
+    \begin{column}{0.4\textwidth}
+      \vspace{-1.0mm}
+      \begin{figure}
+        \includegraphics[height=2.5in]{./figures/packages_azure_light.png}
+      \end{figure}
+    \end{column}
+
+\end{columns}
+
+
+\end{frame}
+
 
 %-------------------------------------------------------------------------------------------------------#
 \frame{
