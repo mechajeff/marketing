@@ -8,6 +8,7 @@ file.*
 *.err
 *.log
 *.page
+*.lock
 
 # Latex files
 *.aux

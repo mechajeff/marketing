@@ -228,6 +228,19 @@ params_2['rim_up'] = 10 - (params_2['r_bore'] +
                            params_2['web_up2'] +
                            params_2['rim_start'])
 
+mapdl.lsel('s', '', '', 1, 18)
+mapdl.lsel('a', '', '', 22)
+mapdl.lsel('a', '', '',28)
+mapdl.save()
+
+mapdl.view('ALL', 1, 0, 0)
+mapdl.replot()
+mapdl.lplot()
+mapdl.show('JPEG')
+mapdl()
+#mapdl.print
+
+
 
 # mapdl = launch_mapdl(run_location=path, override=True, loglevel='INFO')
 mapdl = launch_mapdl()
@@ -272,7 +285,7 @@ pl.add_mesh(fem.exsurf_quad, color='w', show_edges=True, opacity=1.0, lighting=F
 pl.add_mesh(fem2.exsurf_quad, color='w', show_edges=True)
 pl.camera_position = cpos_disk_front
 pl.background_color = 'w'
-cpos = pl.show(screenshot='disk_front.png')
+cpos = pl.show(screenshot='disk_front_morphed.png')
 pl.show()
 femorph.open_logger()
 settings = {'enable_ray_trace': True,

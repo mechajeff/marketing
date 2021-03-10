@@ -27,7 +27,7 @@
  
 \urlstyle{same}
 
-\title{AFRL Morph X}
+\title{AFRL FEMORPH}
 %%\subtitle{A Software Licensing Opportunity}
 
 \author{\large {Jeff Brown\\
@@ -37,10 +37,9 @@
   Turbine Engine Divsion\\
   Aerospace Systems Directorate}
     \date{\today}
-    %%%%%      \vspace{5pt}xxxxxb
-    % Turbine Engine Technology Symposium 2018}
-\distribution{\small{\textbf{Distribution Statemeent A}}}
-    %\distribution{\textbf{DISTRIBUTION STATEMENT C.} / Distribution authorized to U.S. Government Agencies and their contractors (Critical Technology) (Sep. 2018).  Other requests for this document shall be referred to AFRL/RQTI, 1950 Fifth Street, WPAFB, OH}
+    % \distribution{\small{\textbf{Distribution Statemeent A}}}
+    % \distribution{\textbf{DISTRIBUTION STATEMENT C.} / Distribution authorized to U.S. Government Agencies and their contractors (Critical Technology) (Sep. 2018).  Other requests for this document shall be referred to AFRL/RQTI, 1950 Fifth Street, WPAFB, OH}
+    \distribution{\textbf{DISTRIBUTION STATEMENT C.} / Distribution authorized to U.S. Government Agencies and their contractors () (Feb. 2021).  Other requests for this document shall be referred to AFRL/RQTI, 1950 Fifth Street, WPAFB, OH}
 \conference{}
 \begin{document}
 \titleframe
@@ -48,94 +47,136 @@
 
 %-------------------------------------------------------------------------------------------------------#
 \frame{
-  
-  \frametitle{AFRL Morph X}
-  \framesubtitle{3D Mesh Morphing Software}
-\vspace{-5mm}
-\begin{columns}
-  \begin{column}{0.6\textwidth}
+  \frametitle{AFRL FEMORPH}
+  \framesubtitle{3D Mesh Morphing Software - FEM, CFD, .STL, CMM data, ...}
+  \vspace{-5mm}
 
-  \begin{itemize}
-  \item Move 3D FEM and CFD meshes to point cloud and surface data
-  \item Save design time by removing mesh generation bottlenecks
-  \item Rapidly assess impacts of as-manufactured geometry on design intent
-  \item Learn the effects of operational damage on continued operation
-  \item Design and validate the suitability of component repair
-  \item And more...
-  
-  \end{itemize}
+  \begin{columns}
 
-  \end{column}
-  \begin{column}{0.4\textwidth}
-    \vspace{7mm}
-    %% \smartdiagramset{font=\small,
-    %% distance planet-satellite=3cm}
-    %% \scalebox{0.6}{\smartdiagram[connected constellation diagram]{AFRL Morph X,
-    %%     Design, Repair, Operation, Manufacture}}
-    \smartdiagramset{font=\small}
-    \scalebox{0.55}{\smartdiagram[bubble diagram]{\includegraphics[height=2.0cm]{./figures/morph_logo.png} \\AFRL Morph\\ X,
-        Design, Repair, Operation, Manufacture}}
+    \begin{column}{0.60\textwidth}    
+      \begin{itemize}
+        \normalsize{
+          %%\setlength{\itemindent}{0em}
+        \item Simplify 2D and 3D shape opimizaion
+        \item Robustly generate computer experiment designs
+        \item Save design time by removing mesh generation bottlenecks
+        \item Assess impacts of as-manufactured geometry on design intent
+        \item Learn the effects of operational damage on continued use
+        \item Design and validate the suitability of component repair
+        \item And more...
+        }
+      \end{itemize}      
+    \end{column}
     
-  \end{column}
-\end{columns}
+    \begin{column}{0.40\textwidth}
+      \vspace{4mm}
+      \smartdiagramset{font=\small}
+      \scalebox{0.50}{\smartdiagram[bubble diagram]{\includegraphics[height=2.25cm]{./figures/morph_logo.png} \\\Large AFRL\\\Large FEMOPRH,
+          \Large Design, \Large Repair, \Large Operation, \Large Manufacture}}
+    \end{column}
+    
+  \end{columns}
   
 }
 %\includegraphics[height=1.0]{./figures/diskfem_side.png}
-
 %-------------------------------------------------------------------------------------------------------#
 \begin{frame}
-  \frametitle{Design with AFRL Morph X}
-  \framesubtitle{Update FEM to Parametrically Variable CAD Surface}
-  \begin{center}
-
-    \vspace{-11mm}
-
-\begin{center}
+  \frametitle{Design with AFRL FEMORPH}
+  \framesubtitle{Morph FEM to Parameterized CAD Model}
+  \vspace{-0mm}
+  %\begin{center}
     \begin{tikzpicture}
-      % trim (left, lower, right uppert)
-      \node (img1) {\includegraphics[height=4.5cm, trim={14cm, 0cm, 0cm, 0cm}, clip]{./figures/diskfem_side.png}};
-      \node (img2) at (img1.east) [yshift=0.0cm]{\includegraphics[height=4.5cm, trim={7cm, 0cm, 0cm, 0cm}, clip]{./figures/diskcad_side.png}};
-      \node (img3) at (img2.east) [xshift=1.0cm, yshift=0.1cm]{\includegraphics[height=4.9cm, trim={13.0cm, 0cm, 3cm, 1cm}, clip]{./figures/diskfem_front.png}};
-      \node (img4) at (img3.east) [xshift=0.25cm, yshift=0.1cm]{\includegraphics[height=4.9cm, trim={13cm, 0cm, 9cm, 1cm}, clip]{./figures/diskcad_front.png}};
+      %\node (img1) {\includegraphics[height=4.5cm, trim={14cm, 0cm, 0cm, 0cm}, clip]{./figures/diskfem_side.png}};      
+      \node (img1) [xshift=2.0cm]{\includegraphics[height=3.0cm, trim={0cm, 0cm, 0cm, 0cm}, clip]{./figures/disk1_xsec.jpg}};
+      \node (img2) at (img1.east) [xshift=1.30cm]{\includegraphics[height=3.0cm, trim={7cm, 0cm, 0cm, 0cm}, clip]{./figures/diskcad_side.png}};
 
-      \node [] at (-1.25, -2.5) (cap1) [align=center]{FEM};
-      \node [] at (1.5, -2.5) (cap2) [align=center]{Target CAD};
-      \node [] at (4.85, -2.5) (cap3) [align=center]{FEM};
-      \node [] at (7.75, -2.5) (cap4) [align=center]{Target CAD};
+      \node [draw] at (img2.east) (logo) [xshift=0.75cm]{\includegraphics[height=1.75cm]{./figures/morph_logo.png}};
+      
+      \node (img5) at (logo.east) [xshift=3.0cm]{\includegraphics[height=3.0cm, trim={14cm, 0cm, 0cm, 0cm}, clip]{./figures/diskfem_side.png}};
+      \node (img3) at (img5.south) [xshift=-0.5cm, yshift=-1.5cm]{\includegraphics[height=3.0cm, trim={13.0cm, 0cm, 3cm, 1cm}, clip]{./figures/diskfem_front.png}};
+      
+      \node (img3) at (img1.south)[yshift=-1.5cm]{\includegraphics[height=3.0cm, trim={0cm, 0cm, 0cm, 0cm}, clip]{./figures/disk1_front.jpg}};
+      \node (img4) at (img3.east) [xshift=1.0cm]{\includegraphics[height=3.5cm, trim={13cm, 0cm, 9cm, 1cm}, clip]{./figures/diskcad_front.png}};
 
-      \node [] at (0, -3.15) (cap5) [align=center, font=\bfseries]{Side View};
-      \node [] at (6.25, -3.15) (cap6) [align=center, font=\bfseries]{Front View};
+      \node (img4) at (logo.south) [yshift=-2.15cm]{\includegraphics[height=3.5cm, trim={13cm, 0cm, 9cm, 1cm}, clip]{./figures/disk_front_morphed.png}};
 
-      \node [draw] at (3.55, -4.0) (cap7) [align=center]{\footnotesize Models plotted in same reference frame.  FEM grows radially.\\Fourteen variable geometry parameters.};
+      \node [] at (3.0, -5.0) (cap1) [align=center]{Parameterized CAD};
+      \node [] at (10.25, -5.0) (cap1) [align=center]{Initial FEM};
 
-      %\node [draw] at (3.55, -3.5) (cap7) [align=center]{\footnotesize Bore Radius, Bore Width, Bore height, Web Height, Web Thickness, Rim Radius,\\ \footnotesize Bolt Hole Radius, Bolt Hole Diameter, 6x Dovetail Parameters};
+      \draw [dotted] (1, 1.5) rectangle (5.4, -4.5);
+      \draw [dotted] (9.35, 1.5) rectangle (11.1, -4.5);
+      %\node (box1) at (1, 1.5) [draw,dotted,minimum width=4.5cm,minimum height=6.0cm] {};
 
+      \draw [->] [color=black, line width=0.45mm] (5.4, -1.5) -- (logo.west);
+      \draw [->] [color=black, line width=0.45mm] (9.35, -1.5) -- (logo.east);
+      \draw [->] [color=black, line width=0.45mm] (logo.south) -- (7.08, -1.65);
+
+      \node [] at (logo.north) (caption) [align=center, yshift=0.25cm]{AFRL FEMORPH};
+      \node [] at (img4.south) (caption) [align=center, yshift=0.0cm]{Morphed FEM};
 
       
     \end{tikzpicture}
-\end{center}
 
-
-  \end{center}    
+%\end{center}
 \end{frame}
 
 %-------------------------------------------------------------------------------------------------------#
+%% \begin{frame}
+%%   \frametitle{Design with AFRL FEMORPH}
+%%   \framesubtitle{Morph FEM to Parametrically Variable CAD Surface}
+%%   \begin{center}
+
+%%     \vspace{-11mm}
+
+%% \begin{center}
+%%     \begin{tikzpicture}
+%%       % trim (left, lower, right uppert)
+%%       \node (img1) {\includegraphics[height=4.5cm, trim={14cm, 0cm, 0cm, 0cm}, clip]{./figures/diskfem_side.png}};
+%%       \node (img2) at (img1.east) [yshift=0.0cm]{\includegraphics[height=4.5cm, trim={7cm, 0cm, 0cm, 0cm}, clip]{./figures/diskcad_side.png}};
+%%       \node (img3) at (img2.east) [xshift=1.0cm, yshift=0.1cm]{\includegraphics[height=4.9cm, trim={13.0cm, 0cm, 3cm, 1cm}, clip]{./figures/diskfem_front.png}};
+%%       \node (img4) at (img3.east) [xshift=0.25cm, yshift=0.1cm]{\includegraphics[height=4.9cm, trim={13cm, 0cm, 9cm, 1cm}, clip]{./figures/diskcad_front.png}};
+
+%%       \node [] at (-1.25, -2.5) (cap1) [align=center]{FEM};
+%%       \node [] at (1.5, -2.5) (cap2) [align=center]{Target CAD};
+%%       \node [] at (4.85, -2.5) (cap3) [align=center]{FEM};
+%%       \node [] at (7.75, -2.5) (cap4) [align=center]{Target CAD};
+
+%%       \node [] at (0, -3.15) (cap5) [align=center, font=\bfseries]{Side View};
+%%       \node [] at (6.25, -3.15) (cap6) [align=center, font=\bfseries]{Front View};
+
+%%       \node [draw] at (3.55, -4.0) (cap7) [align=center]{\footnotesize Models plotted in same reference frame.  FEM grows radially.\\Fourteen variable geometry parameters.};
+
+%%       %\node [draw] at (3.55, -3.5) (cap7) [align=center]{\footnotesize Bore Radius, Bore Width, Bore height, Web Height, Web Thickness, Rim Radius,\\ \footnotesize Bolt Hole Radius, Bolt Hole Diameter, 6x Dovetail Parameters};
+      
+%%     \end{tikzpicture}
+%% \end{center}
+
+
+%%   \end{center}    
+%% \end{frame}
+
+%-------------------------------------------------------------------------------------------------------#
 \begin{frame}
-  \frametitle{Design with AFRL Morph X}
-  \framesubtitle{Update FEM to Parametrically Variable CAD Surface}
+  \frametitle{Design with AFRL FEMORPH}
+  \framesubtitle{Morphing FEM to CAD}
   \begin{center}
 
     \vspace{-5mm}
 
     \begin{tikzpicture}
       % trim (left, lower, right uppert)
-      \node (img1) {\includegraphics[height=3.0cm]{./figures/disk_side_1.png}};
-      \node (img2) at (img1.south east) [xshift=1.0cm]{\includegraphics[height=3.0cm]{./figures/disk_side_2.png}};
-      \node (img3) at (img2.south east) [xshift=1.0cm]{\includegraphics[height=3.0cm]{./figures/disk_side_3.png}};
+      %\node (img1) {\includegraphics[height=3.0cm]{./figures/disk_side_1.png}};
+      \node (img1) [label=below:0\% Morph] {\includegraphics[height=3.0cm]{./figures/disk_side_1.png}};
+      \node (img2) at (img1.south east) [label=below:50\% Morph][xshift=1.0cm]{\includegraphics[height=3.0cm]{./figures/disk_side_2.png}};
+      \node (img3) at (img2.south east) [label=below:100\% Morph][xshift=1.0cm]{\includegraphics[height=3.0cm]{./figures/disk_side_3.png}};
 
       \node (img4) at (img1.east) [xshift=4.0cm]{\includegraphics[height=3.0cm]{./figures/disk_front_1.png}};
-      \node (img5) at (img4.south east) [xshift=1.0cm, yshift=0.1cm]{\includegraphics[height=3.0cm]{./figures/disk_front_2.png}};
-      \node (img6) at (img5.south east) [xshift=1.0cm]{\includegraphics[height=3.0cm]{./figures/disk_front_3.png}};
+      \node (img5) at (img4.south east) [label=below:50\% Morph][xshift=1.0cm, yshift=0.1cm]{\includegraphics[height=3.0cm]{./figures/disk_front_2.png}};
+      \node (img6) at (img5.south east) [label=below:100\% Morph][xshift=1.0cm]{\includegraphics[height=3.0cm]{./figures/disk_front_3.png}};
+
+      %\draw [->, blue, ultra thick] (-0.5, -2.5) -- (2.25, -4.75);
+      \draw[-latex, blue!50, line width=2mm] (-0.5, -2.5) -- (2.25, -4.75);
+      \draw [-latex, blue!50, line width=2mm] (7.0, 1.5) -- (10.0, -1.0);
       
     \end{tikzpicture}
        
@@ -143,7 +184,7 @@
 \end{frame}
 %-------------------------------------------------------------------------------------------------------#
 \begin{frame}
-  \frametitle{Animation - Click image to Play}
+  \frametitle{Animation - Click image to Play (disk\_side.mp4)}
   %%\framesubtitle{Morph Simple Plate FEM to Complex 3D Turbine Airfoil Surface}
 
   \begin{figure}
@@ -151,21 +192,22 @@
     \movie[label=show4, width=0.75\textwidth, poster, autostart, showcontrols, loop]{\includegraphics[width=0.75\textwidth]{./figures/diskside_cover.png}}{./figures/disk_side.mp4}
  \end{figure} 
 \end{frame}
-
+%%nn
 %-------------------------------------------------------------------------------------------------------#
 \begin{frame}
-  \frametitle{Animation - Click image to Play}
+  \frametitle{Animation - Click image to Play (disk\_front.mp4)} 
   %%\framesubtitle{Morph Simple Plate FEM to Complex 3D Turbine Airfoil Surface}
 
   \begin{figure}
     \centering    
     \movie[label=show4, width=0.75\textwidth, poster, autostart, showcontrols, loop]{\includegraphics[width=0.75\textwidth]{./figures/diskfront_cover.png}}{./figures/disk_front.mp4}
- \end{figure} 
+  \end{figure}
+  
 \end{frame}
 
 %-------------------------------------------------------------------------------------------------------#
 \begin{frame}
-  \frametitle{Design with AFRL Morph X}
+  \frametitle{Design with AFRL FEMORPH}
   \framesubtitle{Sample Large Design Spaces Without Remeshing Challenges}
 
   \tikzstyle{decision} = [diamond, draw, fill=blue!20, 
@@ -181,7 +223,7 @@
 
     %\node (circle) [circle] at (-1.35, -0.05) [align=center, yshift=-0.75cm, xshift=1.5cm, color=white, fill=blue, inner sep=2pt]{AFRL\\ MORPH X};
     \node [draw] at (0.15, -0.80) (logo) {\includegraphics[height=1.75cm]{./figures/morph_logo.png}};%{\includegraphics{./figures/morph_logo.png}};
-    \node [] at (0.15, -2.25) (caption) [align=center]{AFRL\\MORPH X};%{\includegraphics{./figures/morph_logo.png}};
+    \node [] at (0.15, -2.25) (caption) [align=center]{AFRL\\FEMORPH};%{\includegraphics{./figures/morph_logo.png}};
     \node [draw] at (0.1, 1) (cad) [align=center, fill=blue!20]{Parametric\\ CAD};
     \node [] at (0.1, 2.25) (doe) [align=center]{Airfoil Blend\\ DoE Matrix};
     \draw [->] (0.1, 0.5) -- (0.1, 0.2);
@@ -244,7 +286,7 @@
 
 %-------------------------------------------------------------------------------------------------------#
 \begin{frame}
-  \frametitle{Design with AFRL Morph X}
+  \frametitle{Design with AFRL FEMORPH}
   \framesubtitle{Simplify Hex Mesh Generation - Morph defeatured FEM to Complex Surface}
 
   \begin{center}
@@ -260,18 +302,18 @@
 
 %-------------------------------------------------------------------------------------------------------#
 \begin{frame}
-  \frametitle{Animation - Click image to Play}
+  \frametitle{Animation - Click image to Play (blade\_plate.mp4)}
   %%\framesubtitle{Morph Simple Plate FEM to Complex 3D Turbine Airfoil Surface}
 
   \begin{figure}
     \centering    
-    \movie[label=show3, width=1.0\textwidth, poster, autostart, showcontrols, loop]{\includegraphics[width=1.0\textwidth]{./figures/jetcat_vidcover.png}}{./figures/jetcat_simvid.mp4}
+    \movie[label=show3, width=1.0\textwidth, poster, autostart, showcontrols, loop]{\includegraphics[width=1.0\textwidth]{./figures/jetcat_vidcover.png}}{./figures/blade_plate.mp4}
  \end{figure} 
 \end{frame}
 
 %-------------------------------------------------------------------------------------------------------#
 \begin{frame}
-  \frametitle{Manufacturing with AFRL Morph X}
+  \frametitle{Manufacturing with AFRL FEMORPH}
   \framesubtitle{It starts with measuring variation of a real part and comparing to Design Intent}
   %% \vspace{-2.5mm}
 
@@ -292,14 +334,14 @@
 \end{frame}
 %-------------------------------------------------------------------------------------------------------#
 \begin{frame}
-  \frametitle{Manufacturing with AFRL Morph X}
-  \framesubtitle{AFRL Morph X updates the Design FEM to match the STL surface within 0.001''}
+  \frametitle{Manufacturing with AFRL FEMORPH}
+  \framesubtitle{AFRL FEMORPH updates the Design FEM to match the STL surface within 0.001''}
   \begin{tikzpicture}
     \node (img1) at (0, 0) [label={[align=center, below, yshift=-2.5cm]STL Surface}, yshift=-.5cm, xshift=0cm, inner sep=-2pt] {\includegraphics[height=2.5cm]{./figures/pbs_surf.png}};
     \node (img2) at (img1.south) [label={[align=center, below, yshift=-2.5cm]Design FEM}, yshift=-2.65cm, inner sep=-2pt]{\includegraphics[height=2.5cm]{./figures/pbs_fem.png}};
     \node [draw] at (3.5, -2.4) (circle) {\includegraphics[height=2.5cm]{./figures/morph_logo.png}};
     \node (img3) at (circle.east) [label={[align=center, above, yshift=0.5cm]Morphed FEM\\ Deviations from STL}, xshift=2.5cm, inner sep=-9pt]{\includegraphics[height=3.0cm]{./figures/pbs_morphdev.png}};
-
+A
     \draw[->,thick] (img1.east) -| (circle.north);
     \draw[->,thick] (img2.east) -| (circle.south);
     \draw[->,thick] (circle.east) -- (img3.west);
@@ -308,7 +350,7 @@
 \end{frame}
 %-------------------------------------------------------------------------------------------------------#
 \begin{frame}
-  \frametitle{Manufacturing with AFRL Morph X}
+  \frametitle{Manufacturing with AFRL FEMORPH}
   \framesubtitle{Morphed FEM is a Computational Replica of Physical Part}
   \begin{tikzpicture}
     \node (img3) at (0, 0) [label={[align=center, above, yshift=-3.75cm]Morphed FEM\\ Computational Replica}, xshift=0.0cm, inner sep=-9pt]{\includegraphics[height=3.0cm]{./figures/pbs_morphdev.png}};
@@ -324,33 +366,40 @@
 
 %-------------------------------------------------------------------------------------------------------#
 \begin{frame}
-  \frametitle{Animation - Click image to Play}
+  \frametitle{Animation - Click image to Play (blade\_morphvid.mp4)}
   %%\framesubtitle{Morph Simple Plate FEM to Complex 3D Turbine Airfoil Surface}
 
   \begin{figure}
     \centering    
-    \movie[label=show3, width=1.0\textwidth, poster, autostart, showcontrols, loop]{\includegraphics[width=1.0\textwidth]{./figures/pbs_vidcover.png}}{./figures/pbs_morphvid_align.mp4}
+    \movie[label=show3, width=1.0\textwidth, poster, autostart, showcontrols, loop]{\includegraphics[width=1.0\textwidth]{./figures/pbs_vidcover.png}}{./figures/pbs_morphvid.mp4}
  \end{figure} 
 \end{frame}
 
 %-------------------------------------------------------------------------------------------------------#
 \begin{frame}
-  \frametitle{Operations with AFRL Morph X}
-  \framesubtitle{Integrating with Maintenance, Repair, and Operations with Morph X}
+  \frametitle{Operations with AFRL FEMORPH}
+  \framesubtitle{Integrating with Maintenance, Repair, and Operations with FEMORPH}
     \begin{tikzpicture}
       \node (img0) at (0, 0) [yshift=-3.5cm, xshift=0.0cm, inner sep=0pt]{\includegraphics[height=3.0cm]{./figures/depot_mx.jpeg}};
       % \node (img1) at (img0.east) [label={[align=center, above, yshift=-3.0cm]Airfoil Leading Edge Blend Repair}, xshift=3.4cm, inner sep=-2pt]{\includegraphics[height=2.5cm]{./figures/pbs4_sector_1_blend_3.png}};
       \node (img1) at (img0.east) [label={[align=center, above, yshift=-3.0cm]Airfoil Leading Edge Blend Repair}, xshift=3.4cm, inner sep=-2pt]{\includegraphics[trim={0.5cm 0 0.5cm 0}, clip, height=2.5cm]{./figures/pbs4_unblend.png}};
       \node (img1a) at (img0.east) [xshift=4.8cm, inner sep=-2pt]{\includegraphics[trim={12.0cm 0 12.0cm 0}, clip, height=2.5cm]{./figures/pbs4_blend.png}};
       \node (img1b) at (img0.east) [xshift=2.0cm, inner sep=-2pt]{\includegraphics[trim={12.0cm 0 12.0cm 0}, clip, height=2.5cm]{./figures/pbs4_blend_clip.png}};
-      \node (img2) at (img0.south) [label={[align=center, above, yshift=-3.0cm] Assess Damage}, yshift=-2.0cm, inner sep=-2pt]{\includegraphics[height=2.5cm]{./figures/mrb_pic.png}};
-      \node (img3) at (img1.south) [label={[align=center, above, yshift=-3.0cm] Safety Review  Board}, yshift=-2.4cm, inner sep=-2pt]{\includegraphics[height=2.5cm]{./figures/safety_pic.png}};
+      \node (img2) at (img0.south) [label={[align=center, above, yshift=-3.0cm] Assess Damage}, yshift=-2.0cm, inner sep=-2pt]{\includegraphics[trim={0.0cm 12.0cm 15.0cm 0.0cm}, clip, height=2.5cm]{./figures/mrb_pic.png}};
+      \node (img3) at (img1.south) [label={[align=center, above, yshift=-3.0cm] Safety Review  Board}, yshift=-2.4cm, inner sep=-2pt]{\includegraphics[trim={2.0cm 1.1cm 1.0cm 0.0cm}, clip, height=2.5cm]{./figures/safety_pic.png}};
+
+      \node [] at (6.0, -8.0) {\tiny Outlier Part Behavior};
+
+      \node [] at (-1.35, -6.6) {\tiny Airfoil Edge};
+      \node [] at (-1.225, -6.8) {\tiny Damage};
+      %%\draw [->] (2.5, -0.75) -- (4.5, -0.75);
+
     \end{tikzpicture}
 \end{frame}
 %-------------------------------------------------------------------------------------------------------#
 
 \begin{frame}
-  \frametitle{More with AFRL Morph X}
+  \frametitle{More with AFRL FEMORPH}
   \framesubtitle{}
 
   \begin{tikzpicture}
@@ -363,23 +412,25 @@
 \end{frame}
 %-------------------------------------------------------------------------------------------------------#
  \begin{frame}
-  \frametitle{Even more with AFRL Morph X}
+  \frametitle{Even more with AFRL FEMORPH}
   \framesubtitle{}
-
+  \vspace{-5mm}
   \begin{tikzpicture}
-    \node (img0) at (0, 0) [label={[align=center, below, xshift=-0.0cm, yshift=-3.0cm]CMM Data Capable}, yshift=-3.5cm, xshift=0.0cm, inner sep=0pt]{\includegraphics[height=3.0cm]{./figures/cmm_points.png}};
-    \node (img1) at (img0.east) [label={[align=center, below, xshift=0.0cm, yshift=-3.0cm]Improved Instrumentation}, yshift=0.0cm, xshift=3.5cm, inner sep=0pt]{\includegraphics[height=3.0cm]{./figures/strain_gage.png}};
+    \node (img0) at (0, 0) [label={[align=center, below, xshift=-0.0cm, yshift=-3.0cm]CMM Data Capable}, yshift=-3.0cm, xshift=0.0cm, inner sep=0pt]{\includegraphics[height=3.0cm]{./figures/cmm_points.png}};
+    \node (img1) at (img0.east) [label={[align=center, below, xshift=0.0cm, yshift=-2.7cm]Improved Instrumentation}, yshift=-0.05cm, xshift=3.5cm, inner sep=0pt]{\includegraphics[height=2.5cm]{./figures/strain_gage.png}};
     \node (img2) at (img0.south) [label={[align=center, below, yshift=-3.0cm]Improved Model Validation}, yshift=-2.0cm, xshift=0.0cm, inner sep=-2pt]{\includegraphics[trim={0.0cm 0 0.0cm 0}, clip, height=3.0cm]{./figures/pbs_rig.png}};
-    \node (img3) at (img2.east) [label={[align=center, below, yshift=-2.5cm]Adaptive Toolpath Generation}, xshift=3.5cm, yshift=0.0cm, inner sep=-2pt]{\includegraphics[trim={0cm 0 0.0cm 0}, clip, height=2.5cm]{./figures/blade_optomec_xsec.png}};
+    \node (img3) at (img2.east) [label={[align=center, below, yshift=-2.7cm]Adaptive Toolpath Generation}, xshift=3.5cm, yshift=-0.2cm, inner sep=-2pt]{\includegraphics[trim={0cm 0 0.0cm 0}, clip, height=2.75cm]{./figures/blade_optomec_xsec.png}};
   \end{tikzpicture}
 
   %% Morph any surface to another.
 
 \end{frame}
+
+
  %-------------------------------------------------------------------------------------------------------#
 \begin{frame}
-  \frametitle{AFRL Design X Interface}
-  \framesubtitle{Scriptable for integration in automated workflows and GUI for user experience}
+  \frametitle{AFRL FEMORPH Interface}
+  \framesubtitle{Python API for automated workflows and GUI for user experience}
 
  \begin{columns}
     \begin{column}{0.5\textwidth}
@@ -403,17 +454,17 @@
  
 %-------------------------------------------------------------------------------------------------------#
 \begin{frame}
-  \frametitle{AFRL Design X Background}
+  \frametitle{AFRL FEMORPH Background}
   \framesubtitle{}
-
+  
   \begin{itemize}
   \item Developed in Python, C, and C++ for 8+ years
-  \item Accessible through GUI and Python API, Linux, Windows, and Mac OS
+  \item Compatible with Linux, Windows, and Mac OS
   \item Beta tested by Pratt \& Whitney for two years
-  \item Operating in year 4 of 10 year non-exclusive license with Pratt \& Whitney
+  \item In fourth year of 10 year non-exclusive license with Pratt \& Whitney
   \item P\&W provides licensing fees for use and support
   \item Utilized by large P\&W user base for wide range of applications
-  \item Applied pervasively in AFRL research activities
+  \item Applied pervasively in AFRL research and customer support activities
   \end{itemize}
 
 \end{frame}
@@ -421,8 +472,8 @@
 %-------------------------------------------------------------------------------------------------------#
 
 \begin{frame}
-  \frametitle{AFRL Design X Background}
-  \framesubtitle{Software Development}
+  \frametitle{AFRL FEMORPH Background}
+  \framesubtitle{Software Development Process Enhances Robustness}
 
   \begin{itemize}
   \item Software tested rigorously in continuous development and deployment (CI/CD) pipelines
@@ -440,11 +491,11 @@
 %-------------------------------------------------------------------------------------------------------#
 
 \begin{frame}
-  \frametitle{AFRL Design X Background}
+  \frametitle{AFRL FEMORPH Background}
   \framesubtitle{Software Testing}
 
   \begin{itemize}
-  \item AFRL Design X follows standard software development practices.
+  \item AFRL FEMORPH follows standard software development practices.
   \item Unit and regression tests ensure new features are added without breaking existing ones.
   \item Code coverage of $\geq$ 95\% required for all modules, and $\geq$ 98\% for core modules
   \end{itemize}
@@ -459,7 +510,7 @@
 %% %-------------------------------------------------------------------------------------------------------#
 
 \begin{frame}
-  \frametitle{AFRL Design X Background}
+  \frametitle{AFRL FEMORPH Background}
   \framesubtitle{Software Design: Modularity}
 
   \vspace{-5mm}
@@ -469,7 +520,7 @@
       \begin{itemize}
       \item Software is a non-monolithic, modular, and composed of several packages.  Includes both GUI and batch packages.
       \item Designed to be expandable, adaptive, and compatible with modern Python 3.6 - 3.8 environments on Windows, Mac, and Linux.
-      \item Installable from \textit{pip} via offline wheelhouse from GitHub releases.
+      %\item Installable from \textit{pip} via offline wheelhouse from GitHub releases.
       \item Compatible with standalone virtual environments, Jupyterlab webpages, or standard Python.
       \end{itemize}
     \end{column}
@@ -490,11 +541,19 @@
 %-------------------------------------------------------------------------------------------------------#
 \frame{
   \frametitle{Closing Remarks}
+  \vspace{-6mm}
   \begin{itemize}
-  \item AFRL MORPH X adds value across the life cycle, from design, to manufacture, and through operations
+  \item AFRL FEMORPH adds value across the life cycle, from design, to manufacture, and through operations
   \item Rigorous software development practices have enabled rapid development and successful deployment 
   \item Windows demo software available and licensing opportunities
   \end{itemize}
+
+  \begin{center}
+  \smartdiagramset{font=\small}
+  \scalebox{0.45}{\smartdiagram[bubble diagram]{\includegraphics[height=2.25cm]{./figures/morph_logo.png} \\\Large AFRL\\ \Large FEMORPH,
+      \Large Design, \Large Repair, \Large Operation, \Large Manufacture}}
+  \end{center}
+  
 }
 
 
