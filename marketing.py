@@ -44,9 +44,12 @@ pl = pv.Plotter()
 pl.add_mesh(fem.exsurf_quad, color='w', show_edges=True, lighting=False)
 pl.add_mesh(surf)
 pl.background_color='w'
-pl.camera_position = pbs_cpos # 'xy'
+pl.camera_position = 'zy' #cpos #pbs_cpos # 'xy'
+pl.show()
 cpos = pl.show()
 #pl.show(screenshot='pbs_fem.png')
+pl.show(screenshot='pbs4_sector.png')
+pl.show(screenshot='pbs4_surf.png')
 #pl.show(screenshot='jcturb_morph_sn.png')
 
 b_args = {'color': 'k'}
@@ -176,6 +179,7 @@ for aspect in aspects:
             pl.camera_position = cpos_side
             #cpos = pl.show()
             pl.show(screenshot='pbs4_blend_%s.png' % model_n)
+            #cpos = pl.show(screenshot='pbs4_blend_mid.png')
 
 import femorph
 

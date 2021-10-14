@@ -6,7 +6,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \documentclass[t]{beamer}
 
-\usetheme{AFRL2018}
+\usetheme{AFRL2021}
 
 \usepackage{lipsum}
 \usepackage{tikz}
@@ -27,24 +27,28 @@
  
 \urlstyle{same}
 
-\title{AFRL FEMORPH}
-%%\subtitle{A Software Licensing Opportunity}
+\title{\vspace{3mm} \textbf{FEMORPH}}
+\subtitle{Target Surface Computational Mesh Morphing}
 
-\author{\large {Jeff Brown\\
+\author{\vspace{-2mm}\large {Jeff Brown\\
   Alex Kaszynski}}
 
 \institute{Engine Integrity Branch\\
   Turbine Engine Divsion\\
   Aerospace Systems Directorate}
     \date{\today}
-    % \distribution{\small{\textbf{Distribution Statemeent A}}}
+    %\distribution{\color{black} \small{\textbf{Distribution Statemeent A: Approved for public release:  distribution unlimited.  Case No. AFRL-2021-1006}}}
+    \distribution{\color{white} \small{\textbf{Distribution Statemeent A: Approved for public release:  distribution unlimited.  Case No. AFRL-2021-1006}}}
     % \distribution{\textbf{DISTRIBUTION STATEMENT C.} / Distribution authorized to U.S. Government Agencies and their contractors (Critical Technology) (Sep. 2018).  Other requests for this document shall be referred to AFRL/RQTI, 1950 Fifth Street, WPAFB, OH}
-    \distribution{\textbf{DISTRIBUTION STATEMENT C.} / Distribution authorized to U.S. Government Agencies and their contractors () (Feb. 2021).  Other requests for this document shall be referred to AFRL/RQTI, 1950 Fifth Street, WPAFB, OH}
+    %\distribution{\textbf{DISTRIBUTION STATEMENT C.} / Distribution authorized to U.S. Government Agencies and their contractors () (Feb. 2021).  Other requests for this document shall be referred to AFRL/RQTI, 1950 Fifth Street, WPAFB, OH}
 \conference{}
 \begin{document}
-\titleframe
 
+%\titleframe
 
+\titlecyber
+
+\distribution{\color{black} \small{\textbf{Distribution Statemeent A: Approved for public release:  distribution unlimited.  Case No. AFRL-2021-1006}}}
 %-------------------------------------------------------------------------------------------------------#
 \frame{
   \frametitle{AFRL FEMORPH}
@@ -385,14 +389,17 @@ A
       \node (img1) at (img0.east) [label={[align=center, above, yshift=-3.0cm]Airfoil Leading Edge Blend Repair}, xshift=3.4cm, inner sep=-2pt]{\includegraphics[trim={0.5cm 0 0.5cm 0}, clip, height=2.5cm]{./figures/pbs4_unblend.png}};
       \node (img1a) at (img0.east) [xshift=4.8cm, inner sep=-2pt]{\includegraphics[trim={12.0cm 0 12.0cm 0}, clip, height=2.5cm]{./figures/pbs4_blend.png}};
       \node (img1b) at (img0.east) [xshift=2.0cm, inner sep=-2pt]{\includegraphics[trim={12.0cm 0 12.0cm 0}, clip, height=2.5cm]{./figures/pbs4_blend_clip.png}};
-      \node (img2) at (img0.south) [label={[align=center, above, yshift=-3.0cm] Assess Damage}, yshift=-2.0cm, inner sep=-2pt]{\includegraphics[trim={0.0cm 12.0cm 15.0cm 0.0cm}, clip, height=2.5cm]{./figures/mrb_pic.png}};
-      \node (img3) at (img1.south) [label={[align=center, above, yshift=-3.0cm] Safety Review  Board}, yshift=-2.4cm, inner sep=-2pt]{\includegraphics[trim={2.0cm 1.1cm 1.0cm 0.0cm}, clip, height=2.5cm]{./figures/safety_pic.png}};
+      %\node (img2) at (img0.south) [label={[align=center, above, yshift=-3.0cm] Assess Damage}, yshift=-2.0cm, inner sep=-2pt]{\includegraphics[trim={2.5cm 15.0cm 15.0cm 0.0cm}, clip, height=2.5cm, width=2.5cm]{./figures/mrb_pic.png}};
+      \node (img2) at (img0.south) [label={[align=center, above, yshift=-3.0cm] Assess Damage}, yshift=-2.0cm, inner sep=-2pt]{\includegraphics[ height=2.5cm]{./figures/turbine_edge_damage.jpg}};
+      %\node (img3) at (img1.south) [label={[align=center, above, yshift=-3.0cm] Safety Review  Board}, yshift=-2.4cm, inner sep=-2pt]{\includegraphics[trim={2.0cm 1.1cm 1.0cm 0.0cm}, clip, height=2.5cm]{./figures/safety_pic.png}};
+      \node (img3) at (img1.south) [label={[align=center, above, yshift=-3.0cm] Safety Review  Board}, yshift=-2.4cm, inner sep=-2pt]{\includegraphics[trim={3.6cm 1.7cm 0cm 1.0cm}, clip, height=2.5cm]{./figures/msac_scatter_m0.pdf}};
+      %\node [] at (6.0, -8.0) {\tiny Outlier Part Behavior};
 
-      \node [] at (6.0, -8.0) {\tiny Outlier Part Behavior};
-
-      \node [] at (-1.35, -6.6) {\tiny Airfoil Edge};
-      \node [] at (-1.225, -6.8) {\tiny Damage};
+      %\node [] at (-1.65, -6.6) {\tiny Airfoil Edge};
+      %\node [] at (-1.525, -6.8) {\tiny Damage};
       %%\draw [->] (2.5, -0.75) -- (4.5, -0.75);
+
+      \node [] at (4.5, -6.0) {\tiny Outlier};
 
     \end{tikzpicture}
 \end{frame}
@@ -404,7 +411,7 @@ A
 
   \begin{tikzpicture}
     \node (img0) at (0, 0) [yshift=-3.5cm, xshift=0.0cm, inner sep=0pt]{\includegraphics[height=2.0cm]{./figures/hptmoviecrop.png}};
-    \node (img1) at (img0.south east) [label={[align=center, above, xshift=-0.75cm, yshift=-2.5cm]Turbine CFD Mesh Morphing}, yshift=-0.5cm, xshift=0.0cm, inner sep=0pt]{\includegraphics[height=2.0cm]{./figures/EfficiencyHistogram.pdf}};
+    \node (img1) at (img0.south east) [label={[align=center, above, xshift=-0.75cm, yshift=-2.5cm]Turbine CFD Mesh Morphing}, yshift=-0.0cm, xshift=0.1cm, inner sep=0pt]{\includegraphics[height=2.0cm]{./figures/EfficiencyHistogram.pdf}};
     \node (img2) at (img0.east) [label={[align=center, below, yshift=-3.0cm] First Article Analysis}, yshift=-0.5cm, xshift=5.0cm, inner sep=-2pt]{\includegraphics[trim={0.0cm 0 0.0cm 0}, clip, height=3.0cm]{./figures/PTR_point_cloud.png}};
     \node (img3) at (img0.south) [label={[align=center, below, yshift=-2.5cm] ML/AI Training Data Generator}, xshift=0.5cm, yshift=-3.25cm, inner sep=-2pt]{\includegraphics[trim={0cm 0 0.0cm 0}, clip, height=2.5cm]{./figures/pbs4_gspfreq_m6.png}};
     \node (img4) at (img2.south) [label={[align=center, below, yshift=-2.5cm] Additive Part Models}, xshift=0.0cm, yshift=-2.4cm, inner sep=-2pt]{\includegraphics[trim={0cm 0 0.0cm 0}, clip, height=2.5cm]{./figures/jcturb_morph_sn.png}}; 
@@ -417,9 +424,10 @@ A
   \vspace{-5mm}
   \begin{tikzpicture}
     \node (img0) at (0, 0) [label={[align=center, below, xshift=-0.0cm, yshift=-3.0cm]CMM Data Capable}, yshift=-3.0cm, xshift=0.0cm, inner sep=0pt]{\includegraphics[height=3.0cm]{./figures/cmm_points.png}};
-    \node (img1) at (img0.east) [label={[align=center, below, xshift=0.0cm, yshift=-2.7cm]Improved Instrumentation}, yshift=-0.05cm, xshift=3.5cm, inner sep=0pt]{\includegraphics[height=2.5cm]{./figures/strain_gage.png}};
-    \node (img2) at (img0.south) [label={[align=center, below, yshift=-3.0cm]Improved Model Validation}, yshift=-2.0cm, xshift=0.0cm, inner sep=-2pt]{\includegraphics[trim={0.0cm 0 0.0cm 0}, clip, height=3.0cm]{./figures/pbs_rig.png}};
-    \node (img3) at (img2.east) [label={[align=center, below, yshift=-2.7cm]Adaptive Toolpath Generation}, xshift=3.5cm, yshift=-0.2cm, inner sep=-2pt]{\includegraphics[trim={0cm 0 0.0cm 0}, clip, height=2.75cm]{./figures/blade_optomec_xsec.png}};
+    \node (img1) at (img0.east) [label={[align=center, below, xshift=0.0cm, yshift=-2.7cm]Improved Gage Limits}, yshift=-0.05cm, xshift=3.5cm, inner sep=0pt]{\includegraphics[height=2.5cm]{./figures/strain_gage.png}};
+    \node (img2) at (img0.south) [label={[align=center, below, yshift=-2.8cm]Improved Model Validation}, yshift=-2.2cm, xshift=0.0cm, inner sep=-2pt]{\includegraphics[trim={0.0cm 0 0.0cm 0}, clip, height=2.75cm]{./figures/pbs_rig.png}};
+    %\node (img3) at (img2.east) [label={[align=center, below, yshift=-2.7cm]Adaptive Toolpath Generation}, xshift=3.5cm, yshift=-0.2cm, inner sep=-2pt]{\includegraphics[trim={0cm 0 0.0cm 0}, clip, height=2.75cm, width=4.5cm]{./figures/blade_optomec_xsec.png}};
+    \node (img3) at (img2.east) [label={[align=center, below, yshift=-2.8cm]Adaptive Toolpath Generation}, xshift=3.7cm, yshift=-0.05cm, inner sep=-2pt]{\includegraphics[trim={0cm 0 0.0cm 1.0cm}, clip, height=2.75cm]{./figures/ibr_milling.jpg}};
   \end{tikzpicture}
 
   %% Morph any surface to another.
@@ -471,21 +479,21 @@ A
 
 %-------------------------------------------------------------------------------------------------------#
 
-\begin{frame}
-  \frametitle{AFRL FEMORPH Background}
-  \framesubtitle{Software Development Process Enhances Robustness}
+%% \begin{frame}
+%%   \frametitle{AFRL FEMORPH Background}
+%%   \framesubtitle{Software Development Process Enhances Robustness}
 
-  \begin{itemize}
-  \item Software tested rigorously in continuous development and deployment (CI/CD) pipelines
-  \item Leverages automated testing in a secure environment
-  \item Enables high code coverage and stability testing through regression testing.
-  \end{itemize}
+%%   \begin{itemize}
+%%   \item Software tested rigorously in continuous development and deployment (CI/CD) pipelines
+%%   \item Leverages automated testing in a secure environment
+%%   \item Enables high code coverage and stability testing through regression testing.
+%%   \end{itemize}
 
-      \begin{figure}
-       \includegraphics[height=1.65in]{./figures/ci-trigger.png}
-      \end{figure}
+%%       \begin{figure}
+%%        \includegraphics[height=1.65in]{./figures/ci-trigger.png}
+%%       \end{figure}
 
-\end{frame}
+%% \end{frame}
 
 
 %-------------------------------------------------------------------------------------------------------#
